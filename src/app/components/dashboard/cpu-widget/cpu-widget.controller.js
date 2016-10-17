@@ -3,4 +3,4 @@ function CpuWidgetController() {
 }
 
 angular.module('root')
-    .controller('CpuUsageController', CpuUsageController);
+    .controller('CpuWidgetController', CpuWidgetController);
