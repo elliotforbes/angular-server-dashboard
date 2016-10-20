@@ -6,6 +6,7 @@ This project has been built to educational purposes.
 To Do
 =====
 
-* Add Initial Design Pages
-* Gulpfile
+* ~~Add Initial Design Pages~~
+* ~~Gulpfile~~
+* Charts.js integration
 * websockets that connect directly to an agent that runs on a Server

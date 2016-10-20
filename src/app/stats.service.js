@@ -1,11 +1,11 @@
 function StatsService() {
     var service = {};
 
-    var connection = new WebSocket('http://localhost:9000/stats');
+    var connection = new WebSocket('ws://localhost:9000/stats');
 
     var messageQueue = [];
 
-    ws.onopen = function(){  
+    connection.onopen = function(){  
         console.log("Socket has been opened!");  
     };
 
