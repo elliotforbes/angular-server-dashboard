@@ -1,3 +1,4 @@
 angular.module('root', [
-        'ngRoute'
+        'ngRoute',
+         'highcharts-ng'
     ]);

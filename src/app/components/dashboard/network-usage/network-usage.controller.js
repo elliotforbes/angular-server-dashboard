@@ -1,7 +1,13 @@
 function NetworkUsageController(StatsService, $log, $timeout, $scope) {
     var ctrl = this;
 
-    Highcharts.chart('networkusage', {
+    $scope.chartConfig = {
+        options: {
+            chart: {
+                type: 'area'
+            }
+        },
+
         title: {
             text: 'Network Usage - Last 60 Minutes'
         },
@@ -35,7 +41,7 @@ function NetworkUsageController(StatsService, $log, $timeout, $scope) {
                 data: [19.3, 56.3, 23.1, 38.5, 32.9, 27.0, 30.6, 42.3, 17.4, 12.0, 9.1, 34.0]
             }
         ]
-    });
+    };
 
     ctrl.poll = function() {
         $timeout(function() {

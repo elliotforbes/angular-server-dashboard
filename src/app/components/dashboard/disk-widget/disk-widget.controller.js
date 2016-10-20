@@ -1,27 +1,12 @@
-function DiskWidgetController(StatsService, $log, $timeout) {
+function DiskWidgetController(StatsService, $log, $timeout, $scope) {
     var ctrl = this;
 
-    Highcharts.chart('container', {
-        chart: {
-            type: 'area'
-        },
-        title: {
-            text: 'Disk Usage - 4 weeks'
-        },
-        yAxis: {
-            title: {
-                text: 'Billions'
-            },
-            labels: {
-                formatter: function () {
-                    return this.value / 1000;
-                }
+    $scope.chartConfig = {
+        options: {
+            chart: {
+                type: 'area'
             }
         },
-        xAxis: {
-            categories: ['-4', '-3', '-2', '-1']
-        },
-
         series: [
             {
                 data: [29.9, 29.3, 31.0, 32]
@@ -32,11 +17,19 @@ function DiskWidgetController(StatsService, $log, $timeout) {
             {
                 data: [5.8, 12.3, 16.4, 20.1]
             }
-        ]
-    });
+        ],
+        xAxis: {
+            categories: ['-4', '-3', '-2', '-1']
+        },
+        title: {
+            text: 'Disk Usage - 4 Weeks'
+        },
+
+        loading: false
+    }
 }
 
-DiskWidgetController.$inject = ['StatsService', '$log', '$timeout'];
+DiskWidgetController.$inject = ['StatsService', '$log', '$timeout', '$scope'];
 
 angular.module('root')
     .controller('DiskWidgetController', DiskWidgetController);

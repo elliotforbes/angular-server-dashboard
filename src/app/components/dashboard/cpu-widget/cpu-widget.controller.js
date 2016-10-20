@@ -1,34 +1,29 @@
-function CpuWidgetController(StatsService, $log, $timeout) {
+function CpuWidgetController(StatsService, $log, $timeout, $scope) {
     var ctrl = this;
 
-    Highcharts.chart('cpuwidget', {
-        chart: {
-            type: 'area'
-        },
-        title: {
-            text: 'CPU Usage (%)'
-        },
-        yAxis: {
-            title: {
-                text: 'Percentage (%)'
+    $scope.chartConfig = {
+        options: {
+            chart: {
+                type: 'area'
             }
         },
-        xAxis: {
-            title: {
-                text: 'Minutes Ago'
-            },
-            categories: ['55', '50', '45', '40', '35', '30', 
-                '25', '20', '15', '10', '5', '0']
+        title: {
+            text: 'CPU Usage - Last 60 Minutes'
+        },
+        series: [{
+            name: 'Usage (%)',
+            data: [10, 15, 12, 8, 7]
+        }],
+        title: {
+            text: 'Hello'
         },
 
-        series: [{
-            data: [29.9, 71.5, 16.4, 29.2, 44.0, 76.0, 35.6, 48.5, 16.4, 94.1, 95.6, 54.4]
-        }]
-    });
+        loading: false
+    }
 
 }
 
-CpuWidgetController.$inject = ['StatsService', '$log', '$timeout'];
+CpuWidgetController.$inject = ['StatsService', '$log', '$timeout', '$scope'];
 
 angular.module('root')
     .controller('CpuWidgetController', CpuWidgetController);
