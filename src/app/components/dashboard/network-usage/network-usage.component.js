@@ -2,7 +2,11 @@ var networkUsage = {
     templateUrl: 'app/components/dashboard/network-usage/network-usage.html',
     controller: NetworkUsageController,
     bindings: {
-        usage: '<'
+        usage: '<',
+        series: '<',
+        labels: '<',
+        data: '<',
+        options: '<'
     }
 }
 

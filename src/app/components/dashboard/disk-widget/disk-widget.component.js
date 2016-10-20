@@ -2,7 +2,11 @@ var diskUsage = {
     templateUrl: 'app/components/dashboard/disk-widget/disk-widget.html',
     controller: DiskWidgetController,
     bindings : {
-        usage : '<'
+        usage : '<',
+        series: '<',
+        labels: '<',
+        data: '<',
+        options: '<'
     }
 }
 
