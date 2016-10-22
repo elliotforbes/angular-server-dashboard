@@ -27,6 +27,25 @@ function DiskWidgetController(StatsService, $log, $timeout, $scope) {
 
         loading: false
     }
+
+    ctrl.poll = function() {
+        $timeout(function(){
+            $scope.chartConfig.series[0].data.shift();
+            $scope.chartConfig.series[0].data.push(Math.floor(Math.random() * 20) + 1);
+
+            $scope.chartConfig.series[1].data.shift();
+            $scope.chartConfig.series[1].data.push(Math.floor(Math.random() * 20) + 1);
+
+            $scope.chartConfig.series[2].data.shift();
+            $scope.chartConfig.series[2].data.push(Math.floor(Math.random() * 20) + 1);
+            ctrl.poll();
+        }, 2000);
+    }
+
+    this.$onInit = function() {
+        $log.log("hello");
+        ctrl.poll();
+    }
 }
 
 DiskWidgetController.$inject = ['StatsService', '$log', '$timeout', '$scope'];

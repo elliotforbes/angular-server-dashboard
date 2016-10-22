@@ -24,6 +24,19 @@ function MemWidgetController(StatsService, $log, $timeout, $scope) {
         }]
     };
 
+    ctrl.poll = function() {
+        $timeout(function(){
+            $scope.chartConfig.series[0].data.shift();
+            $scope.chartConfig.series[0].data.push(Math.floor(Math.random() * 20) + 100);
+            ctrl.poll();
+        }, 2000);
+    }
+
+    this.$onInit = function() {
+        $log.log("hello");
+        ctrl.poll();
+    }
+
 }
 
 MemWidgetController.$inject = ['StatsService', '$log', '$timeout', '$scope'];
