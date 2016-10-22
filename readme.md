@@ -5,6 +5,10 @@ This project has been built to educational purposes.
 
 **Live Demo:** [Demo](https://elliotforbes.co.uk/demo/angular-server-health/#/)
 
+#### Screenshot:
+
+![Demo](https://raw.githubusercontent.com/elliotforbes/angular-server-dashboard/master/Screen%20Shot%202016-10-22%20at%2021.39.34.png)
+
 #### Features
 
 * Component based architecture
