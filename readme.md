@@ -3,7 +3,7 @@ AngularJS Server Health Dashboard
 
 This project has been built to educational purposes. 
 
-**Live Demo:** [Demo](https://elliotforbes.co.uk/angular-server-health/#/)
+**Live Demo:** [Demo](https://elliotforbes.co.uk/demo/angular-server-health/#/)
 
 #### Features
 
