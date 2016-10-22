@@ -1,7 +1,7 @@
 function NetworkUsageController(StatsService, $log, $timeout, $scope) {
     var ctrl = this;
 
-    $scope.chartConfig = {
+    ctrl.chartConfig = {
         options: {
             chart: {
                 type: 'area'
@@ -45,10 +45,11 @@ function NetworkUsageController(StatsService, $log, $timeout, $scope) {
 
      ctrl.poll = function() {
         $timeout(function(){
-            $scope.chartConfig.series[0].data.shift();
-            $scope.chartConfig.series[0].data.push(Math.floor(Math.random() * 20) + 1);
-            $scope.chartConfig.series[1].data.shift();
-            $scope.chartConfig.series[1].data.push(Math.floor(Math.random() * 20) + 1);
+            // Here is where you could poll a REST API or the websockets service for live data
+            ctrl.chartConfig.series[0].data.shift();
+            ctrl.chartConfig.series[0].data.push(Math.floor(Math.random() * 20) + 1);
+            ctrl.chartConfig.series[1].data.shift();
+            ctrl.chartConfig.series[1].data.push(Math.floor(Math.random() * 20) + 1);
             ctrl.poll();
         }, 2000);
     }
@@ -60,7 +61,7 @@ function NetworkUsageController(StatsService, $log, $timeout, $scope) {
 
 }
 
-NetworkUsageController.$inject = ['StatsService', '$log', '$timeout', '$scope'];
+NetworkUsageController.$inject = ['StatsService', '$log', '$timeout'];
 
 angular.module('root')
     .controller('NetworkUsageController', NetworkUsageController);

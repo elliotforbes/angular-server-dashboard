@@ -1,7 +1,7 @@
-function DiskWidgetController(StatsService, $log, $timeout, $scope) {
+function DiskWidgetController(StatsService, $log, $timeout) {
     var ctrl = this;
 
-    $scope.chartConfig = {
+    ctrl.chartConfig = {
         options: {
             chart: {
                 type: 'area'
@@ -30,14 +30,14 @@ function DiskWidgetController(StatsService, $log, $timeout, $scope) {
 
     ctrl.poll = function() {
         $timeout(function(){
-            $scope.chartConfig.series[0].data.shift();
-            $scope.chartConfig.series[0].data.push(Math.floor(Math.random() * 20) + 1);
+            ctrl.chartConfig.series[0].data.shift();
+            ctrl.chartConfig.series[0].data.push(Math.floor(Math.random() * 20) + 1);
 
-            $scope.chartConfig.series[1].data.shift();
-            $scope.chartConfig.series[1].data.push(Math.floor(Math.random() * 20) + 1);
+            ctrl.chartConfig.series[1].data.shift();
+            ctrl.chartConfig.series[1].data.push(Math.floor(Math.random() * 20) + 1);
 
-            $scope.chartConfig.series[2].data.shift();
-            $scope.chartConfig.series[2].data.push(Math.floor(Math.random() * 20) + 1);
+            ctrl.chartConfig.series[2].data.shift();
+            ctrl.chartConfig.series[2].data.push(Math.floor(Math.random() * 20) + 1);
             ctrl.poll();
         }, 2000);
     }
@@ -48,7 +48,7 @@ function DiskWidgetController(StatsService, $log, $timeout, $scope) {
     }
 }
 
-DiskWidgetController.$inject = ['StatsService', '$log', '$timeout', '$scope'];
+DiskWidgetController.$inject = ['StatsService', '$log', '$timeout'];
 
 angular.module('root')
     .controller('DiskWidgetController', DiskWidgetController);

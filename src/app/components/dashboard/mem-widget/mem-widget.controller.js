@@ -1,7 +1,7 @@
-function MemWidgetController(StatsService, $log, $timeout, $scope) {
+function MemWidgetController(StatsService, $log, $timeout) {
     var ctrl = this;
 
-    $scope.chartConfig = {
+    ctrl.chartConfig = {
         options: {
             chart: {
                 type: 'area'
@@ -26,20 +26,19 @@ function MemWidgetController(StatsService, $log, $timeout, $scope) {
 
     ctrl.poll = function() {
         $timeout(function(){
-            $scope.chartConfig.series[0].data.shift();
-            $scope.chartConfig.series[0].data.push(Math.floor(Math.random() * 20) + 100);
+            ctrl.chartConfig.series[0].data.shift();
+            ctrl.chartConfig.series[0].data.push(Math.floor(Math.random() * 20) + 100);
             ctrl.poll();
         }, 2000);
     }
 
     this.$onInit = function() {
-        $log.log("hello");
         ctrl.poll();
     }
 
 }
 
-MemWidgetController.$inject = ['StatsService', '$log', '$timeout', '$scope'];
+MemWidgetController.$inject = ['StatsService', '$log', '$timeout'];
 
 angular.module('root')
     .controller('MemWidgetController', MemWidgetController);
